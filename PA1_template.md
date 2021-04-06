@@ -28,19 +28,6 @@ Unzipping the activity dataset and reading the dataset into dataset activity. I 
 unzip("activity.zip")
 activity <- read.csv("activity.csv")
 head(activity)
-```
-
-```
-##   steps       date interval
-## 1    NA 2012-10-01        0
-## 2    NA 2012-10-01        5
-## 3    NA 2012-10-01       10
-## 4    NA 2012-10-01       15
-## 5    NA 2012-10-01       20
-## 6    NA 2012-10-01       25
-```
-
-```r
 str(activity)
 ```
 
@@ -81,7 +68,7 @@ Activity_by_date <- rmna_activtiy %>% group_by(date) %>% summarise(Sum_Steps = s
 ggplot(Activity_by_date, aes(x=Sum_Steps)) + geom_histogram(binwidth = 1000, boundary=0, fill="white", colour = "black") + ggtitle("Histogram of Total steps by day") + xlab("Total daily steps") + ylab("Frequency")
 ```
 
-<img src="PA1_template_files/figure-html/unnamed-chunk-18-1.png" width="672" />
+![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
 
 ###Calculate and report the mean and median total number of steps taken per day
 
@@ -112,7 +99,7 @@ activity_by_interval <- rmna_activtiy %>% group_by(interval) %>% summarise(Avera
 ggplot(activity_by_interval, aes(x = interval, y = Average_Steps)) + geom_line() + ggtitle("Average daily activity pattern") + xlab("5 min interval") + ylab("Average number of steps")
 ```
 
-<img src="PA1_template_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
 
 ###Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -154,7 +141,7 @@ Activity_impute_by_date <- activity_impute %>% group_by(date) %>% summarise(Sum_
 ggplot(Activity_impute_by_date, aes(x=Sum_Steps)) + geom_histogram(binwidth = 1000, boundary=0, fill="white", colour = "black") + ggtitle("Histogram of Total steps by day") + xlab("Total daily steps") + ylab("Frequency")
 ```
 
-<img src="PA1_template_files/figure-html/unnamed-chunk-24-1.png" width="672" />
+![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png)
 
 Calculating and reporting the mean and the median with the imputed data
 
@@ -204,8 +191,8 @@ Activity_impute_by_interval <- activity_impute %>% group_by(interval, weekday) %
 ggplot(Activity_impute_by_interval, aes(x = interval, y = Average_Steps)) + geom_line() + ggtitle("Average daily activity pattern weekend vs. weekday") + xlab("5 min interval") + ylab("Average number of steps") + facet_grid(weekday~.)
 ```
 
-<img src="PA1_template_files/figure-html/unnamed-chunk-27-1.png" width="672" />
+![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14-1.png)
 
-There are some differences between the activities on weekends and weekdays
+There are some differences between the activities on weekends and weekdays.
 
 

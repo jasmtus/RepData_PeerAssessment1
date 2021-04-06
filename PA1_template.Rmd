@@ -126,6 +126,9 @@ Activity_impute_by_interval <- activity_impute %>% group_by(interval, weekday) %
 ggplot(Activity_impute_by_interval, aes(x = interval, y = Average_Steps)) + geom_line() + ggtitle("Average daily activity pattern weekend vs. weekday") + xlab("5 min interval") + ylab("Average number of steps") + facet_grid(weekday~.)
 ```
 
-There are some differences between the activities on weekends and weekdays
+There are some differences between the activities on weekends and weekdays.
 
+```{r, echo = TRUE}
+rmarkdown::render("PA1_template.Rmd")
+```
 
